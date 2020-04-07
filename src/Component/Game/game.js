@@ -1,9 +1,8 @@
 import React, {Component} from "react";
 import '../Game/game.css'
 
-// const CELL_SIZE= 71;
-// const WIDTH = 600;
-// const HEIGHT = 600;
+
+
 
 class Game extends  Component{
     render(){
