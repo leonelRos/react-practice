@@ -2,10 +2,12 @@ import React, {Component} from "react";
 
 class Counter extends Component {
     state = {
-        count : 0
+        value : this.props.counter.value
     };
-    getIncrement = () => {
-        console.log("this is incrementing", this)
+    //by using arrow function i sae myself from using constructor. THIS is a relation of the object 
+    getIncrement = () => {       
+        //this increments the state by 1
+        this.setState({ value: this.state.value + 1}) 
     }
     render (){
         
@@ -17,13 +19,14 @@ class Counter extends Component {
                 {/* <ul>
                     {this.state.tags.map(tag => <li key={tag}>{tag}</li>)}
                 </ul> */}
+                <button onClick={() => this.props.onDecrease(this.props.counter.id)}className="btn btn-danger btn-sm m-2">Delete</button>
             </div>
         )
     }
 
     getBadgeColorClasses() { //is the method to change color og className once is different than zero
         let classes = "badge m-2 badge-";
-        classes += (this.state.count === 0) ? "warning" : "primary";
+        classes += this.state.count === 0 ? "warning" : "primary";
         return classes;
     }
 
